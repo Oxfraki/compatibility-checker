@@ -1,47 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Oxfraki Accessories Finder — find compatible replacement parts for your robot vacuum model.">
   <title>Oxfraki Accessories Finder</title>
-  <style>
-    body { font-family: Arial, sans-serif; background:#f6f7f9; margin:0; padding:40px; }
-    .box { max-width:720px; margin:auto; background:white; padding:40px; border-radius:24px; box-shadow:0 8px 30px rgba(0,0,0,.08); }
-    h1 { font-size:36px; margin-bottom:10px; }
-    p { color:#555; font-size:18px; }
-    input { width:100%; padding:16px; font-size:18px; border:1px solid #ddd; border-radius:12px; margin-top:20px; box-sizing:border-box; }
-    button { margin-top:16px; padding:14px 24px; font-size:18px; border:0; border-radius:12px; background:#ff9900; color:white; font-weight:bold; cursor:pointer; }
-    .result { margin-top:30px; padding:20px; background:#fff7e8; border-radius:16px; display:none; }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="box">
-    <h1>Oxfraki Accessories Finder</h1>
-    <p>Find compatible replacement parts for your robot vacuum.</p>
+  <main class="site-main">
+    <div class="container">
+      <header class="hero">
+        <img
+          class="hero__logo"
+          src="images/logo.svg"
+          alt="Oxfraki"
+          width="180"
+          height="42"
+        >
 
-    <input id="model" placeholder="Enter your model, e.g. L40 Ultra">
-    <button onclick="searchModel()">Search</button>
+        <h1 class="hero__title">Accessories Finder</h1>
+        <p class="hero__subtitle">Find compatible accessories for your robot vacuum.</p>
 
-    <div id="result" class="result"></div>
-  </div>
+        <form class="search-form" role="search" aria-label="Robot vacuum model search">
+          <label class="visually-hidden" for="model-search">Robot vacuum model</label>
+          <div class="search-form__group">
+            <input
+              class="search-form__input"
+              type="search"
+              id="model-search"
+              name="model"
+              placeholder="Enter your robot vacuum model..."
+              autocomplete="off"
+            >
+            <button class="search-form__button" type="submit">Search</button>
+          </div>
+        </form>
 
-  <script>
-    function searchModel() {
-      const model = document.getElementById('model').value.trim();
-      const result = document.getElementById('result');
+        <section
+          class="results"
+          id="results"
+          aria-label="Search results"
+          aria-live="polite"
+        ></section>
+      </header>
 
-      if (!model) {
-        result.style.display = 'block';
-        result.innerHTML = 'Please enter your robot model.';
-        return;
-      }
+      <section class="faq" aria-labelledby="faq-title">
+        <h2 class="faq__title" id="faq-title">Can't find your model?</h2>
+        <p class="faq__text">
+          We're continuously adding support for new robot vacuum models.
+          Please check back later.
+        </p>
+      </section>
+    </div>
+  </main>
 
-      result.style.display = 'block';
-      result.innerHTML = `
-        <h2>Demo Result</h2>
-        <p>You searched: <strong>${model}</strong></p>
-        <p>Next step: connect this page to your Google Sheet.</p>
-      `;
-    }
-  </script>
+  <footer class="site-footer">
+    <div class="container">
+      <p class="site-footer__text">&copy; Oxfraki</p>
+    </div>
+  </footer>
+
+  <script src="script.js?v=80"></script>
 </body>
 </html>
